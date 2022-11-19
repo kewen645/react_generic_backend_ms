@@ -1,14 +1,17 @@
 import { useEffect } from 'react'
 import { useRoutes, useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
+import { message } from 'antd'
 import routes from './routes'
 
 // 手写封装前置路由守卫
 const ToPage1 = () => {
 	const navigate = useNavigate()
 
+	// 初始化时即跳转
 	useEffect(() => {
 		navigate('/page1')
+		message.info('你已登录，即将跳转至/page1')
 	}, [])
 
 	return <div></div>
@@ -17,8 +20,10 @@ const ToPage1 = () => {
 const ToLogin = () => {
 	const navigate = useNavigate()
 
+	// 初始化时即跳转
 	useEffect(() => {
 		navigate('/login')
+		message.info('你还没登录，即将跳转至/login')
 	}, [])
 	return <div></div>
 }
